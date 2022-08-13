@@ -4,7 +4,8 @@ var arrCadena = [];
 
 var boxSalida = document.getElementById("box-salida");
 var cadenaSalida = document.getElementById("texto-salida");
-cadenaSalida.style.opacity = "0";
+cadenaSalida.style.visibility = "hidden";
+document.getElementById("texto-entrada").focus();
 
 var tipoOperacion = document.getElementById("tipo-operacion");
 var botones = document.querySelectorAll("button");
@@ -61,7 +62,7 @@ function limpiar() {
   tipoOperacion.innerHTML = "Resultado";
   document.getElementById("texto-entrada").value = "";
   cadenaSalida.value = "";
-  cadenaSalida.style.opacity = "0";
+  cadenaSalida.style.visibility = "hidden";
   activarBotones();
   document.getElementById("texto-entrada").focus();
 };
@@ -72,7 +73,7 @@ function activarBotones() {
 };
 
 function animacion(text) {
-  cadenaSalida.style.opacity = "0";
+  cadenaSalida.style.visibility = "hidden";
   boxSalida.style.backgroundImage = "url(./img/giphy.gif)";
   boxSalida.style.backgroundRepeat = "no-repeat";
   boxSalida.style.backgroundSize = "cover";
@@ -81,6 +82,6 @@ function animacion(text) {
     boxSalida.style.backgroundRepeat = "no-repeat";
     boxSalida.style.backgroundSize = "cover";
     tipoOperacion.innerHTML = text;
-    cadenaSalida.style.opacity = "1";
+    cadenaSalida.style.visibility = "visible";
   }, 2000);
 }
