@@ -1,14 +1,22 @@
+/**
+ *  Declaro las arreglos globales
+ */
 var arrLlaves = ["ai", "enter", "imes", "ober", "ufat"];
 var arrLlaves2 = ["a", "e", "i", "o", "u"];
 var arrCadena = [];
-
-var boxSalida = document.getElementById("box-salida");
-var cadenaSalida = document.getElementById("texto-salida");
+/**
+  * enlazo los elementos html a utilizar
+  * las declaro como constantes
+  */
+const cadenaEntrada = document.getElementById("texto-entrada");
+const boxSalida = document.getElementById("box-salida");
+const cadenaSalida = document.getElementById("texto-salida");
+const tipoOperacion = document.getElementById("tipo-operacion");
+const botones = document.querySelectorAll("button");
+// oculto el textaarea de salida
 cadenaSalida.style.visibility = "hidden";
+//pongo el foco en el textarea de entrada
 document.getElementById("texto-entrada").focus();
-
-var tipoOperacion = document.getElementById("tipo-operacion");
-var botones = document.querySelectorAll("button");
 
 function encriptar() {
   var cadenaEntrada = document.getElementById("texto-entrada").value.toLowerCase();
