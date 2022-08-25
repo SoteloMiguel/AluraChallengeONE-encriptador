@@ -19,20 +19,17 @@ cadenaSalida.style.visibility = "hidden";
 document.getElementById("texto-entrada").focus();
 
 function encriptar() {
-  var cadenaEntrada = document.getElementById("texto-entrada").value.toLowerCase();
+  cadenaEntrada.value.toLowerCase();
 
-  if (cadenaEntrada == 0 || cadenaEntrada.length == 0) {
+  if (cadenaEntrada.value == "" || cadenaEntrada.value.length == 0) {
     alert("Debe ingresar un texto");
-
   } else {
-    var arrCadena = cadenaEntrada.split("");
+    var arrCadena = cadenaEntrada.value.split("");
 
     arrCadena.forEach((caracter, index) => {
-      (caracter == "a") ? arrCadena[index] = arrLlaves[0]: (caracter == "e") ? arrCadena[index] = arrLlaves[1] :
-        (caracter == "i") ? arrCadena[index] = arrLlaves[2] :
-        (caracter == "o") ? arrCadena[index] = arrLlaves[3] :
-        (caracter == "u") ? arrCadena[index] = arrLlaves[4] :
-        0;
+      arrLlaves2.forEach((elemento, i) => {
+        if (elemento == caracter) arrCadena[index] = arrLlaves[i];
+      });
     });
 
     if (botones[3].disabled) activarBotones();
