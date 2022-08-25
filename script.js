@@ -52,22 +52,23 @@ function desencriptar() {
     if (botones[3].disabled) activarBotones();
     cadenaSalida.value = cadenaEntrada.value;
   }
-}
+};
 
 function copiar() {
-  console.log("copiando");
-  cadenaSalida = document.getElementById("texto-salida");
+  cadenaEntrada.value = "";
   cadenaSalida.select();
-  document.execCommand("copy");
+  navigator.clipboard.writeText(cadenaSalida.value);
+  cadenaEntrada.focus();
+  alert("Texto copiado!");
 };
 
 function limpiar() {
   tipoOperacion.innerHTML = "Resultado";
-  document.getElementById("texto-entrada").value = "";
   cadenaSalida.value = "";
   cadenaSalida.style.visibility = "hidden";
   activarBotones();
-  document.getElementById("texto-entrada").focus();
+  cadenaEntrada.value = "";
+  cadenaEntrada.focus();
 };
 
 function activarBotones() {
@@ -87,4 +88,4 @@ function animacion(text) {
     tipoOperacion.innerHTML = text;
     cadenaSalida.style.visibility = "visible";
   }, 2000);
-}
+};
