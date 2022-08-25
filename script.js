@@ -40,21 +40,19 @@ function encriptar() {
 };
 
 function desencriptar() {
-  var cadenaEntrada = document.getElementById("texto-entrada").value.toLowerCase();
   var regx;
-  if (cadenaEntrada == 0 || cadenaEntrada.length == 0) {
+  if (cadenaEntrada.value == "" || cadenaEntrada.value.length == 0) {
     alert("Debe ingresar un texto");
-
   } else {
     arrLlaves.forEach((elemento, indice) => {
-      regx = RegExp(elemento, 'gm');
-      cadenaEntrada = cadenaEntrada.replace(regx, arrLlaves2[indice]);
+      regx = new RegExp(elemento, "gm");
+      cadenaEntrada.value = cadenaEntrada.value.replace(regx, arrLlaves2[indice]);
     });
     animacion("Texto Desencriptado");
     if (botones[3].disabled) activarBotones();
-    cadenaSalida.value = cadenaEntrada;
+    cadenaSalida.value = cadenaEntrada.value;
   }
-};
+}
 
 function copiar() {
   console.log("copiando");
