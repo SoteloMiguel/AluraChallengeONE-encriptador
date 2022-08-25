@@ -5,9 +5,9 @@ var arrLlaves = ["ai", "enter", "imes", "ober", "ufat"];
 var arrLlaves2 = ["a", "e", "i", "o", "u"];
 var arrCadena = [];
 /**
-  * enlazo los elementos html a utilizar
-  * las declaro como constantes
-  */
+ * enlazo los elementos html a utilizar
+ * las declaro como constantes
+ */
 const cadenaEntrada = document.getElementById("texto-entrada");
 const boxSalida = document.getElementById("box-salida");
 const cadenaSalida = document.getElementById("texto-salida");
@@ -22,7 +22,7 @@ function encriptar() {
   cadenaEntrada.value.toLowerCase();
 
   if (cadenaEntrada.value == "" || cadenaEntrada.value.length == 0) {
-    alert("Debe ingresar un texto");
+    mostrarModal("Debe ingresar un texto");
   } else {
     var arrCadena = cadenaEntrada.value.split("");
 
@@ -42,7 +42,7 @@ function encriptar() {
 function desencriptar() {
   var regx;
   if (cadenaEntrada.value == "" || cadenaEntrada.value.length == 0) {
-    alert("Debe ingresar un texto");
+    mostrarModal("Debe ingresar un texto");
   } else {
     arrLlaves.forEach((elemento, indice) => {
       regx = new RegExp(elemento, "gm");
@@ -59,7 +59,7 @@ function copiar() {
   cadenaSalida.select();
   navigator.clipboard.writeText(cadenaSalida.value);
   cadenaEntrada.focus();
-  alert("Texto copiado!");
+  mostrarModal("Texto copiado");
 };
 
 function limpiar() {
@@ -87,5 +87,21 @@ function animacion(text) {
     boxSalida.style.backgroundSize = "cover";
     tipoOperacion.innerHTML = text;
     cadenaSalida.style.visibility = "visible";
-  }, 2000);
+  }, 1500);
 };
+/**
+ * MODAL
+ */
+const modal = document.querySelector("#modal");
+const openModal = document.querySelector(".abrir-btn");
+const closeModal = document.querySelector(".cerrar-btn");
+const h2modal = document.querySelector("#h2-modal"); 
+
+function mostrarModal(texto){
+  h2modal.innerHTML = texto;
+  modal.showModal();
+}
+
+closeModal.addEventListener("click", () => {
+  modal.close();
+});
