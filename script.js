@@ -44,13 +44,13 @@ function desencriptar() {
   if (cadenaEntrada.value == "" || cadenaEntrada.value.length == 0) {
     mostrarModal("Debe ingresar un texto");
   } else {
+    cadenaSalida.value = cadenaEntrada.value;
     arrLlaves.forEach((elemento, indice) => {
       regx = new RegExp(elemento, "gm");
-      cadenaEntrada.value = cadenaEntrada.value.replace(regx, arrLlaves2[indice]);
+      cadenaSalida.value = cadenaSalida.value.replace(regx, arrLlaves2[indice]);
     });
     animacion("Texto Desencriptado");
     if (botones[3].disabled) activarBotones();
-    cadenaSalida.value = cadenaEntrada.value;
   }
 };
 
