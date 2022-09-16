@@ -42,7 +42,7 @@ function encriptar() {
 function desencriptar() {
   var regx;
   if (cadenaEntrada.value == "" || cadenaEntrada.value.length == 0) {
-    mostrarModal("Debe ingresar un texto");
+    alert("Debe ingresar un texto");
   } else {
     cadenaSalida.value = cadenaEntrada.value;
     arrLlaves.forEach((elemento, indice) => {
